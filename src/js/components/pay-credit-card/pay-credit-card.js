@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import './pay-credit-card.scss';
 import cartIconImg from '../../../../assets/cart-icon.svg';
 import CardFigure from '../card-figure/card-figure';
 import CardFigurePicker from '../card-figure-picker/card-figure-picker';
 import StepList from '../step-list/step-list';
+import PayForm from '../pay-form/pay-form';
 
 export default class PayCreditCard extends Component {
   constructor(){
@@ -41,7 +42,7 @@ export default class PayCreditCard extends Component {
             steps={["Carrinho", "Pagamento", "Confirmação"]}
             stepSelected={"Pagamento"}></StepList>
           <div className="pay-credit-card__form">
-
+            <PayForm></PayForm>
           </div>
         </div>
       </div>
