@@ -1,0 +1,28 @@
+.step-list {
+  display: flex;
+  font-size: 13px;
+  justify-content: center;
+  &__item {
+    display: flex;
+    color: #DE4B4B;
+  }
+  &__item-icon {
+    margin-right: 6px;
+  }
+  &__separator {
+    color: #DE4B4B;
+    margin: auto 20px;
+  }
+  &__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 6px;
+    font-weight: 700;
+    border: 1px solid #DE4B4B;
+  }
+}
+  
