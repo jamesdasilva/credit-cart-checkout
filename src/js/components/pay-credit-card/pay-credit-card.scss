@@ -1,0 +1,38 @@
+.pay-credit-card {
+  background-color: #fff;
+  width: 1024px;
+  height: 596px;
+  &__presentation {
+    box-sizing: border-box;
+    width: 352px;
+    height: 596px;
+    padding: 53px 10px 53px 64px;
+    background: #DE4B4B 0% 0% no-repeat padding-box;
+  }
+  &__icon {
+    margin-right: 6px;
+  }
+  &__back-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 53px;
+    text-align: left;
+    font-size: 13px;
+    letter-spacing: -0.01px;
+    color: #FFFFFF;
+  }
+  &__step-title {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    margin-bottom: 31px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.01px;
+    color: #FFFFFF;
+    img {
+      margin-right: 10px;
+    }
+  }
+}
