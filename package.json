@@ -1,0 +1,22 @@
+{
+  "name": "bexs-front-end-exam",
+  "version": "1.0.0",
+  "description": "## Desafio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/bexstech/bexs-front-end-exam.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/bexstech/bexs-front-end-exam#readme",
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
