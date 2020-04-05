@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './pay-form.scss';
+import PayFormInput from '../pay-form-input/pay-form-input';
 
 class PayForm extends Component {
 	constructor(props) {
@@ -12,41 +13,55 @@ class PayForm extends Component {
 			installments: ''
 		};
 		this.submitHandler = this.submitHandler.bind(this);
+		this.updateCardCode = this.updateCardCode.bind(this);
 	}
 	submitHandler(event) {
 		event.preventDefault();
 		console.log('submitHandler');
 		console.log(this.state);
 	}
+	insertChar(string, char, position) {
+		return string.slice(0, position) + char + string.slice(position, string.length - 1);
+	}
+	updateCardCode(e){
+		const { value } = e.currentTarget;
+		console.log(value.leng);
+		let newValue = value && (value.length == 4 || value.length == 9) ? value + ' ' : value;
+		console.log(newValue);
+		this.setState(prevState => ({
+			...prevState,
+			cardCode: /^[0-9 ]*$/.test(newValue) ? newValue : prevState.cardCode 
+		}));
+	}
 	render(){
 		return (
 			<form className="pay-form" onSubmit={this.submitHandler}>
-				<input 
-					className="pay-form__input"
-					type="text"
-					value={this.state.cardCode}
-					onChange={(e) => this.setState({ cardCode: e.target.value })}
-					placeholder="Número do cartão"></input>
-				<input 
-					className="pay-form__input"
-					type="text"
-					value={this.state.people}
-					onChange={(e) => this.setState({ people: e.target.value })}
-					placeholder="Nome (igual ao cartão)"></input>
+				<PayFormInput 
+					label="Número do cartão"
+					charSet="digits"
+					separator={' '}
+					positions={[4, 9, 14]}
+					length={19}></PayFormInput>
+				<PayFormInput 
+					label="Nome (igual ao cartão)"
+					charSet="alpha"
+					separator={' '}
+					positions={[4, 9, 14]}
+					length={19}></PayFormInput>
+
 				<div className="pay-form__row">
-					<input 
-						className="pay-form__input"
-						type="text"
-						value={this.state.shelfLife}
-						onChange={(e) => this.setState({ shelfLife: e.target.value })}
-						placeholder="Validade"></input>
+					<PayFormInput 
+						label="Validade"
+						charSet="digits"
+						separator={'/'}
+						positions={[2]}
+						length={5}></PayFormInput>
+
 					<div className="">
-						<input 
-							className="pay-form__input"
-							type="text"
-							value={this.state.cvv}
-							onChange={(e) => this.setState({ cvv: e.target.value })}
-							placeholder="CVV"></input>
+						<PayFormInput 
+							label="CVV"
+							charSet="digits"
+							length={3}></PayFormInput>
 					</div>
 				</div>
 				<select 

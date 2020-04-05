@@ -1,0 +1,14 @@
+.pay-form-input {
+  box-sizing: border-box;
+  margin-bottom: 72px;
+  color: #C9C9C9;
+  border: 0;
+  border-bottom: 1px solid #C9C9C9;
+  font-size: 17px;
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    color: #C9C9C9;
+  }
+}
