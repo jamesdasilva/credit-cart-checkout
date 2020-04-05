@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import './pay-credit-card.scss';
 import cartIconImg from '../../../../assets/cart-icon.svg';
 import CardFigure from '../card-figure/card-figure';
+import CardFigurePicker from '../card-figure-picker/card-figure-picker';
 
 export default class PayCreditCard extends Component {
+  constructor(){
+    super();
+    this.state ={
+      client: {
+        code: '5149 4505 6231 6542', 
+        people: 'JAMES O DA SILVA', 
+        date: '06/26'
+      }
+    };
+  }
   render() {
     return (
       <div className="pay-credit-card">
@@ -19,8 +30,10 @@ export default class PayCreditCard extends Component {
             <img src={cartIconImg} />
             Adicione um novo cartão de crédito
           </div>
-          <CardFigure client={{
-            code: '5149 4505 6231 6542', people: 'JAMES O DA SILVA', date: '06/26'}}></CardFigure>
+          <CardFigurePicker 
+            client={this.state.client}
+            cardFigureRender={(c) => <CardFigure client={c}></CardFigure> }>
+          </CardFigurePicker>
         </div>
         <div className="pay-credit-card__form-container">
           <div className="pay-credit-card__step-list">
