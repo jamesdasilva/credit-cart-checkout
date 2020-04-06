@@ -43,4 +43,10 @@
       background: #ba3a3a 0% 0% no-repeat padding-box;
     }
   }
+  &__btn-submit--disabled {
+    background-color: #ddd;
+    &:hover {
+      background: #ddd 0% 0% no-repeat padding-box;
+    }
+  }
 }

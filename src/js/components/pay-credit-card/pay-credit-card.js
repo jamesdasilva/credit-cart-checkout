@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import './pay-credit-card.scss';
 import cartIconImg from '../../../../assets/cart-icon.svg';
-import CardFigure from '../card-figure/card-figure';
+import CardFigureVisa from '../card-figure-visa/card-figure-visa';
+import CardFigureUndefined from '../card-figure-undefined/card-figure-undefined';
 import CardFigurePicker from '../card-figure-picker/card-figure-picker';
 import StepList from '../step-list/step-list';
 import PayForm from '../pay-form/pay-form';
@@ -21,7 +22,18 @@ export default class PayCreditCard extends Component {
     this.update = this.update.bind(this);
   }
   update(e){
-    this.setState(e);
+    //console.log(e);
+    const newState = {};
+    e.forEach(item => {
+      newState[item.name] = item.value
+    });
+    this.setState({ client: { ...this.state.client, ...newState }});
+  }
+  setCartFigure(c) {
+    if(/^[4]{1}[.]*/.test(c.cardCode)){
+      return (<CardFigureVisa client={c}></CardFigureVisa>)
+    }
+    return (<CardFigureUndefined client={c}></CardFigureUndefined>)
   }
   render() {
     return (
@@ -38,7 +50,7 @@ export default class PayCreditCard extends Component {
           </div>
           <CardFigurePicker 
             client={this.state.client}
-            cardFigureRender={(c) => <CardFigure client={c}></CardFigure> }>
+            cardFigureRender={this.setCartFigure}>
           </CardFigurePicker>
         </div>
         <div className="pay-credit-card__form-container">

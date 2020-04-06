@@ -1,0 +1,43 @@
+@import url(https://fonts.googleapis.com/css2?family=Lato:wght@600&display=swap);
+
+.card-figure-visa {
+  box-sizing: border-box;
+  width: 365px;
+  height: 224px;
+  padding-top: 35px;
+  padding-left: 33px;
+  background: transparent url('../../../../assets/Group 1603.svg') 0% 0% no-repeat padding-box;
+  &__logo {
+    margin-bottom: 49px;
+  }
+  &__code {
+    width: 299px;
+    margin-bottom: 33px;
+    text-align: left;
+    font-size: 24px; 
+    font-family: 'Lato', sans-serif;;
+    letter-spacing: 3.0px;
+    color: #FFFFFF;
+    text-shadow: 0px 1px 2px #000000B3;
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 37px;
+  }
+  &__people {
+    text-align: left;
+    font-size: 16px; 
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.4px;
+    color: #FFFFFF;
+    text-shadow: 0px 1px 2px #000000B3;
+  }
+  &__date {
+    text-align: left;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.4px;
+    color: #FFFFFF;
+    text-shadow: 0px 1px 2px #000000B3;
+  }
+}

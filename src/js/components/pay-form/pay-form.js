@@ -27,16 +27,38 @@ class PayForm extends Component {
         value: '',
         isValid: undefined
       },
+      isDone: false
 		};
 		this.submitHandler = this.submitHandler.bind(this);
-		this.update = this.update.bind(this);
-	}
-	update(value){
+    this.update = this.update.bind(this);
+    this.isDone = this.isDone.bind(this);
+  }
+  componentDidUpdate() {
+    const _isDone = this.isDone();
+    if(this.state.isDone != _isDone)
+      this.setState({isDone: _isDone});
+  }
+  isDone(){
+    const keys = Object.keys(this.state);
+    const validKeys = keys.filter(item => {
+      return this.state[item].isValid;
+    });
+    console.log(keys.length, validKeys.length);
+    return keys.length - 1 === validKeys.length;
+  }
+	update(value) {
     const obj = { };
     obj[`${value.name}`] = { }
     obj[`${value.name}`]['value'] = value.value;
     obj[`${value.name}`]['isValid'] = value.isValid;
-		this.setState(obj);
+    this.setState(obj);
+    obj[`${value.name}`]['name'] = value.name;
+    const stateCopy = {
+      ...this.state
+    }
+    stateCopy[`${value.name}`] =  obj[`${value.name}`];
+    const dataUpdateKeys = Object.keys(stateCopy).filter(item => true);
+    this.props.update(dataUpdateKeys.map(key => stateCopy[key]));
 	}
 	submitHandler(event) {
 		event.preventDefault();
@@ -96,7 +118,8 @@ class PayForm extends Component {
 
 				<div className="pay-form__btn-submit-container">
 					<input 
-						className="pay-form__btn-submit"
+            className={this.state.isDone ? "pay-form__btn-submit" : "pay-form__btn-submit pay-form__btn-submit--disabled"}
+            disabled={!this.state.isDone}
 						type="submit" value="CONTINUAR" />
 				</div>
 			</form>

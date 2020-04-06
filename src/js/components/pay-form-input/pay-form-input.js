@@ -39,6 +39,7 @@ class PayFormInput extends Component {
     }
     this.setState(newState);
     newState['name'] = this.props.name;
+    newState['isValid'] = this.validate(e.target.value);
     this.props.update(newState);
   }
   isPosition(length) {
@@ -52,7 +53,7 @@ class PayFormInput extends Component {
         return false;
       }  
     } else {
-      if(value.length == this.props.length) {
+      if(value.length >= this.props.length) {
         return true;
       } else {
         return false;
