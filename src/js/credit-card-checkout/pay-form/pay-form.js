@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './pay-form.scss';
 import PayFormInput from '../pay-form-input/pay-form-input';
 import PayFormSelect from '../pay-form-input-select/pay-form-input-select';
+import { makePayment } from '../../services/payments';
 
 class PayForm extends Component {
 	constructor(props) {
@@ -43,7 +44,6 @@ class PayForm extends Component {
     const validKeys = keys.filter(item => {
       return this.state[item].isValid;
     });
-    console.log(keys.length, validKeys.length);
     return keys.length - 1 === validKeys.length;
   }
 	update(value) {
@@ -61,9 +61,14 @@ class PayForm extends Component {
     this.props.update(dataUpdateKeys.map(key => stateCopy[key]));
 	}
 	submitHandler(event) {
-		event.preventDefault();
-		console.log('submitHandler');
-		console.log(this.state);
+    event.preventDefault();
+    const payData = { };
+    Object.keys(this.state).forEach(key => {
+      payData[key] = this.state[key].value
+    })
+    delete payData.isDone;
+    console.log('--- enviando', payData);
+    makePayment(payData).then(res => console.log('response', res));
 	}
 	render(){
 		console.log('form', this.state);

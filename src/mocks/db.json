@@ -1,0 +1,20 @@
+{
+  "payments": [
+    {
+      "id": 1,
+      "cardCode": "4444 4444 4444 4444",
+      "people": "fffffffffffffff",
+      "shelfLife": "33/33",
+      "cvv": "333",
+      "installments": "3"
+    },
+    {
+      "cardCode": "4444 4444 4444 4444",
+      "people": "fffffffffffffff",
+      "shelfLife": "33/33",
+      "cvv": "333",
+      "installments": "3",
+      "id": 2
+    }
+  ]
+}
