@@ -1,5 +1,7 @@
 # Credit Cart Checkout
 
+![preview](credit-cart-checkout.png)
+
 ## Instroduções
 
 - Iniciar servidor de desenvolvimento: npm run start
