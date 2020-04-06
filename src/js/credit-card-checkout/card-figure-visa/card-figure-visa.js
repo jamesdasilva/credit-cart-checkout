@@ -8,7 +8,7 @@ const CardFigureVisa = ({ client }) => (
     <div className="card-figure-visa__logo">
       <img src={logo} />
     </div>
-    <div className="card-figure-visa__code">
+    <div className="card-figure-visa__code" >
       {client.cardCode}
     </div>
     <div className="card-figure-visa__row">

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './card-figure-picker.scss';
 
 const CardFigurePicker = ({ client, cardFigureRender }) => (
-  <div className="card-figure-picker">
+  <div className="card-figure-picker" data-testid="card-code-figure">
     {cardFigureRender(client)}
   </div>
 );

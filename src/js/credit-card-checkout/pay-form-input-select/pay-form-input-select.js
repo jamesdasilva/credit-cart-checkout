@@ -36,7 +36,7 @@ class PayFormSelect extends Component {
           {this.props.label}
         </label>
         <select 
-          className="pay-select__select"
+          data-testid={this.props.name}
           className={this.state.isValid ? "pay-select__select" : " pay-select__select pay-select__select--invalid"}
 					value={this.state.value}
 					onChange={this.updateValue}
