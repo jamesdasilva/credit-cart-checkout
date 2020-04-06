@@ -1,14 +1,14 @@
 # Credit Cart Checkout
 
 #### História de usuário:
-Eu como cliente,
-Quero usar meu cartão de crédito para realizar e pagamento
-Para conseguir realizar a compra
-#### Cenário Feliz
-Dado que o usuário esteja na tela de pagamento,
-Quando ele preencher todos os campos do formulario com valores válidos
-O botão continuar deve ser habilitado
+- Eu como cliente,
+- Quero usar meu cartão de crédito para realizar o pagamento
+- Para conseguir realizar a compra
 
+#### Cenário Feliz
+- Dado que o usuário esteja na tela de pagamento,
+- Quando ele preencher todos os campos do formulario com valores válidos
+- O botão "continuar" deve ser habilitado
 
 ![preview](credit-cart-checkout.png)
 
