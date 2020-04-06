@@ -68,7 +68,7 @@ class PayFormInput extends Component {
   }
 	render() {
 		return (
-      <div className="pay-input">
+      <div className="pay-input" data-testid={this.props.name}>
         <label className={this.state.value ? "pay-input__label pay-input__label--visible" : "pay-input__label"}>
           {this.props.label}
         </label>
