@@ -9,11 +9,11 @@ const CardFigure = ({ client }) => (
       <img src={logo} />
     </div>
     <div className="card-figure__code">
-      {client.code}
+      {client.cardCode}
     </div>
     <div className="card-figure__row">
         <div className="card-figure__people">{client.people}</div>
-        <div className="card-figure__date">{client.date}</div>
+        <div className="card-figure__date">{client.shelfLife}</div>
     </div>
   </div>
 );

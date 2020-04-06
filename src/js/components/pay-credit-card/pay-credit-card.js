@@ -13,11 +13,15 @@ export default class PayCreditCard extends Component {
     super();
     this.state ={
       client: {
-        code: '5149 4505 6231 6542', 
-        people: 'JAMES O DA SILVA', 
-        date: '06/26'
+        cardCode: '**** **** **** ****', 
+        people: 'NOME DO TITULAR', 
+        shelfLife: '00/00'
       }
     };
+    this.update = this.update.bind(this);
+  }
+  update(e){
+    this.setState(e);
   }
   render() {
     return (
@@ -42,7 +46,7 @@ export default class PayCreditCard extends Component {
             steps={["Carrinho", "Pagamento", "Confirmação"]}
             stepSelected={"Pagamento"}></StepList>
           <div className="pay-credit-card__form">
-            <PayForm></PayForm>
+            <PayForm update={this.update}></PayForm>
           </div>
         </div>
       </div>

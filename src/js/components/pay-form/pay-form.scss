@@ -4,12 +4,10 @@
   flex-direction: column;
   &__row {
     display: flex;
+    justify-content: space-between;
     & > input, div {
       box-sizing: border-box;
-      width: 50%;
-    }
-    & > input:first-child {
-      margin-right: 20px;
+      width: 48%;
     }
   }
   &__input {
@@ -19,21 +17,6 @@
     border: 0;
     border-bottom: 1px solid #C9C9C9;
     font-size: 17px;
-    &:focus {
-      outline: none;
-    }
-    &::placeholder {
-      color: #C9C9C9;
-    }
-  }
-  &__select {
-    box-sizing: border-box;
-    margin-bottom: 50px;
-    color: #C9C9C9;
-    border: 0;
-    border-bottom: 1px solid #C9C9C9;
-    font-size: 17px;
-    background-color: #fff;
     &:focus {
       outline: none;
     }

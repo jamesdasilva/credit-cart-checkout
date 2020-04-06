@@ -1,82 +1,103 @@
 import React, { Component } from 'react';
 import './pay-form.scss';
 import PayFormInput from '../pay-form-input/pay-form-input';
+import PayFormSelect from '../pay-form-input-select/pay-form-input-select';
 
 class PayForm extends Component {
 	constructor(props) {
     super(props);
 		this.state = {
-			cardCode: '',
-			people: '',
-			shelfLife: '',
-			cvv: '',
-			installments: ''
+			cardCode: {
+        value: '',
+        isValid: undefined
+      },
+			people: {
+        value: '',
+        isValid: undefined
+      },
+			shelfLife: {
+        value: '',
+        isValid: undefined
+      },
+			cvv: {
+        value: '',
+        isValid: undefined
+      },
+			installments: {
+        value: '',
+        isValid: undefined
+      },
 		};
 		this.submitHandler = this.submitHandler.bind(this);
-		this.updateCardCode = this.updateCardCode.bind(this);
+		this.update = this.update.bind(this);
+	}
+	update(value){
+    const obj = { };
+    obj[`${value.name}`] = { }
+    obj[`${value.name}`]['value'] = value.value;
+    obj[`${value.name}`]['isValid'] = value.isValid;
+		this.setState(obj);
 	}
 	submitHandler(event) {
 		event.preventDefault();
 		console.log('submitHandler');
 		console.log(this.state);
 	}
-	insertChar(string, char, position) {
-		return string.slice(0, position) + char + string.slice(position, string.length - 1);
-	}
-	updateCardCode(e){
-		const { value } = e.currentTarget;
-		console.log(value.leng);
-		let newValue = value && (value.length == 4 || value.length == 9) ? value + ' ' : value;
-		console.log(newValue);
-		this.setState(prevState => ({
-			...prevState,
-			cardCode: /^[0-9 ]*$/.test(newValue) ? newValue : prevState.cardCode 
-		}));
-	}
 	render(){
+		console.log('form', this.state);
 		return (
 			<form className="pay-form" onSubmit={this.submitHandler}>
+
 				<PayFormInput 
-					label="Número do cartão"
+					name="cardCode"
+          label="Número do cartão"
+          invalidMsg="Número de cartão inválido"
 					charSet="digits"
-					separator={' '}
-					positions={[4, 9, 14]}
-					length={19}></PayFormInput>
-				<PayFormInput 
-					label="Nome (igual ao cartão)"
-					charSet="alpha"
+					update={this.update}
 					separator={' '}
 					positions={[4, 9, 14]}
 					length={19}></PayFormInput>
 
+				<PayFormInput 
+					name="people"
+          label="Nome (igual ao cartão)"
+          invalidMsg="Insira seu nome completo"
+					update={this.update}
+					charSet="alpha"
+					></PayFormInput>
+
 				<div className="pay-form__row">
+
 					<PayFormInput 
-						label="Validade"
+						name="shelfLife"
+            label="Validade"
+            invalidMsg="Data inválida"
+						update={this.update}
 						charSet="digits"
 						separator={'/'}
 						positions={[2]}
 						length={5}></PayFormInput>
 
-					<div className="">
-						<PayFormInput 
-							label="CVV"
-							charSet="digits"
-							length={3}></PayFormInput>
-					</div>
+					<PayFormInput 
+						name="cvv"
+            label="CVV"
+            invalidMsg="Código inválido"
+						update={this.update}
+						charSet="digits"
+						length={3}></PayFormInput>
+
 				</div>
-				<select 
-					className="pay-form__select"
-					value={this.state.installments}
-					onChange={(e) => this.setState({ installments: e.target.value })}
-					placeholder="Número de parcelas">
-					<option value="">Número de parcelas</option>
-					<option value="1">1X</option>
-					<option value="3">3X</option>
-					<option value="5">5X</option>
-					<option value="10">10X</option>
-				</select>
+
+        <PayFormSelect
+          name="installments"
+          label="Número de parcelas"
+          invalidMsg="Insira o número de parcelas"
+          update={this.update}></PayFormSelect>
+
 				<div className="pay-form__btn-submit-container">
-					<input className="pay-form__btn-submit" type="submit" value="CONTINUAR" />
+					<input 
+						className="pay-form__btn-submit"
+						type="submit" value="CONTINUAR" />
 				</div>
 			</form>
 		);
