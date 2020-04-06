@@ -107,7 +107,6 @@ class PayForm extends Component {
 						update={this.update}
 						charSet="digits"
 						length={3}></PayFormInput>
-
 				</div>
 
         <PayFormSelect

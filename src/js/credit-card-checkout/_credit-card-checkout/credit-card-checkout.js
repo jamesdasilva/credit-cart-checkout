@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-import './pay-credit-card.scss';
+import './credit-card-checkout.scss';
 import cartIconImg from '../../../../assets/cart-icon.svg';
 import CardFigureVisa from '../card-figure-visa/card-figure-visa';
 import CardFigureUndefined from '../card-figure-undefined/card-figure-undefined';
@@ -14,9 +14,9 @@ export default class PayCreditCard extends Component {
     super();
     this.state ={
       client: {
-        cardCode: '**** **** **** ****', 
-        people: 'NOME DO TITULAR', 
-        shelfLife: '00/00'
+        cardCode: '', 
+        people: '', 
+        shelfLife: ''
       }
     };
     this.update = this.update.bind(this);

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './app.scss';
-import PayCreditCard from "./components/pay-credit-card/pay-credit-card";
+import PayCreditCard from "./credit-card-checkout/_credit-card-checkout/credit-card-checkout";
 
 class App extends Component {
   constructor() {
