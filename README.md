@@ -1,5 +1,9 @@
 # Credit Cart Checkout
 
+Interface React para realização de pagamento com cartão de créditos 
+
+<div style="width: 100%; text-align:center"><img src="credit-cart-checkout.png" /></div>
+
 #### História de usuário:
 - Eu como cliente,
 - Quero usar meu cartão de crédito para realizar o pagamento
@@ -17,8 +21,6 @@ Para ver os cenários com mais detalhes, execute os testes de usuáro.
 npm run e2e
 ```
 
-![preview](credit-cart-checkout.png)
-
 #### Iniciar servidor de desenvolvimento
 ```
 npm run start
@@ -35,8 +37,14 @@ npm run upfake
 ```
 
 ## Estrutura do projeto
-Esta aplicação trata-se de um agregado de componentes:
-- Um lista de etapas (StepList)
-- Simulador visual do cartão (CreditCardFigure)
-- Formulário de pagamento (PayForm)
+A partir da raiz do projeto, temos quatro diretórios importantes:
+- /assets: imagens e outros recursos da aplicação;
+- /dist: arquivos de build prontos para implantação;
+- /cypress: testes de usuário automatizados;
+- /src: arquivos fontes 
+
+No direório src, temos:
+- O arquivo de entrada "entry.js";
+- Uma pasta '/js/services' com requisições assíncronas;
+- A pasta '/js/credit-card-checkout' com os componentes.
 
