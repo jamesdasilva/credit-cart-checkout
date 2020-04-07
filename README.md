@@ -10,21 +10,28 @@
 - Quando ele preencher todos os campos do formulario com valores válidos
 - O botão "continuar" deve ser habilitado
 
-![preview](credit-cart-checkout.png)
+Para ver os cenários com mais detalhes, execute os testes de usuáro.
 
-## Instruções
+#### Executar testes de usuário automatizados
+```
+npm run e2e
+```
+
+![preview](credit-cart-checkout.png)
 
 #### Iniciar servidor de desenvolvimento
 ```
 npm run start
 ```
-#### Executar testes de usuário automatizados
-```
-npm run e2e
-```
+
 #### Gerar build para produção
 ```
 npm run build
+```
+
+#### Executar Back-End fake
+```
+npm run upfake
 ```
 
 ## Estrutura do projeto
