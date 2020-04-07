@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './card-figure-visa.scss';
-import logo from '../../../../assets/logo-visa.png';
+import logo from '../../../../../assets/logo-visa.png';
 
 const CardFigureVisa = ({ client }) => (
   <div className="card-figure-visa">

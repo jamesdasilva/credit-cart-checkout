@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import './credit-card-checkout.scss';
 import cartIconImg from '../../../../assets/cart-icon.svg';
-import CardFigureVisa from '../card-figure-visa/card-figure-visa';
-import CardFigureUndefined from '../card-figure-undefined/card-figure-undefined';
-import CardFigurePicker from '../card-figure-picker/card-figure-picker';
+import CardFigureVisa from '../card-figure-picker/card-figure-visa/card-figure-visa';
+import CardFigureUndefined from '../card-figure-picker/card-figure-undefined/card-figure-undefined';
+import CardFigurePicker from '../card-figure-picker/_card-figure-picker/card-figure-picker';
 import StepList from '../step-list/step-list';
-import PayForm from '../pay-form/pay-form';
+import PayForm from '../pay-form/_pay-form/pay-form';
 
 const StepListMobile = (steps, stepSelected) => {
   return (
