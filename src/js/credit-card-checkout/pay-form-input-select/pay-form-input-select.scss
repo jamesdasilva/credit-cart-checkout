@@ -39,4 +39,20 @@
   &__alert--invisible {
     visibility: hidden;
   }
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__container--empty {
+    select {
+      color: #C9C9C9;
+    }
+  }
+  option {
+    color: #3C3C3C;
+  }
+  option[value="0"] {
+    color: #C9C9C9;
+  }
+  
 }

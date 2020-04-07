@@ -5,7 +5,7 @@ class PayFormSelect extends Component {
 	constructor(props) {
     super(props);
 		this.state = {
-      value: '',
+      value: '0',
       isValid: true
 		};
     this.updateValue = this.updateValue.bind(this);
@@ -32,22 +32,24 @@ class PayFormSelect extends Component {
 	render() {
 		return (
       <div className="pay-select">
-        <label className={this.state.value ? "pay-select__label pay-select__label--visible" : "pay-select__label"}>
+        <label className={this.state.value != "0" ? "pay-select__label pay-select__label--visible" : "pay-select__label"}>
           {this.props.label}
         </label>
-        <select 
-          data-testid={this.props.name}
-          className={this.state.isValid ? "pay-select__select" : " pay-select__select pay-select__select--invalid"}
-					value={this.state.value}
-					onChange={this.updateValue}
-          onBlur={this.validate}
-          placeholder={this.props.label}>
-					<option value="0">{this.props.label}</option>
-					<option value="1">1X</option>
-					<option value="3">3X</option>
-					<option value="5">5X</option>
-					<option value="10">10X</option>
-				</select>
+        <div className={this.state.value != "0" ? "pay-select__container" : "pay-select__container pay-select__container--empty"}>
+          <select 
+            data-testid={this.props.name}
+            className={this.state.isValid ? "pay-select__select" : "pay-select__select pay-select__select--invalid"}
+            value={this.state.value}
+            onChange={this.updateValue}
+            onBlur={this.validate}
+            placeholder={this.props.label}>
+            <option value="0">{this.props.label}</option>
+            <option value="1">1X</option>
+            <option value="3">3X</option>
+            <option value="5">5X</option>
+            <option value="10">10X</option>
+          </select>
+        </div>
         <div className={!this.state.isValid ? "pay-select__alert" : "pay-select__alert pay-select__alert--invisible"}>
           {this.props.invalidMsg}
           </div>
