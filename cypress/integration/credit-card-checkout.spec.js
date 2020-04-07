@@ -26,7 +26,7 @@ describe("Credit Card Checkout", () => {
       cy.findByTestId('installments').select('3X');
       cy.findByDisplayValue('CONTINUAR').should('be.disabled');
     })
-    it.only("A figura do cartão deve exibir o valor digitado no campo 'número do cartão'", () => {
+    it("A figura do cartão deve exibir o valor digitado no campo 'número do cartão'", () => {
       cy.findByTestId('cardCode').type('4566885646334451');
       cy.findByTestId('card-code-figure').contains('4566 8856 4633 4451');
     })
