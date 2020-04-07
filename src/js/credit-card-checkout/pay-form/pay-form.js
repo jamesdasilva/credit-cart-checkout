@@ -67,11 +67,9 @@ class PayForm extends Component {
       payData[key] = this.state[key].value
     })
     delete payData.isDone;
-    console.log('--- enviando', payData);
     makePayment(payData).then(res => console.log('response', res));
 	}
 	render(){
-		console.log('form', this.state);
 		return (
 			<form className="pay-form" onSubmit={this.submitHandler}>
 

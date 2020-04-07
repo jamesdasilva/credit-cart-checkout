@@ -9,6 +9,14 @@ import CardFigurePicker from '../card-figure-picker/card-figure-picker';
 import StepList from '../step-list/step-list';
 import PayForm from '../pay-form/pay-form';
 
+const StepListMobile = (steps, stepSelected) => {
+  return (
+    <div className="steps-list-mobile">
+      <strong>Etapa {steps.findIndex(s => s == stepSelected) + 1}</strong> de {steps.length}
+    </div>
+  )
+}
+
 export default class PayCreditCard extends Component {
   constructor(){
     super();
@@ -39,10 +47,20 @@ export default class PayCreditCard extends Component {
     return (
       <div className="pay-credit-card">
         <div className="pay-credit-card__presentation">
-          <div className="pay-credit-card__back-step">
-            <div className="pay-credit-card__icon">
-              <FontAwesomeIcon icon={faAngleLeft} size="lg" />
-            </div> Alterar forma de pegamento
+          <div className="pay-credit-card__step-nav">
+            <div className="pay-credit-card__back-step">
+              <div className="pay-credit-card__back-step-icon">
+                <FontAwesomeIcon icon={faAngleLeft} size="lg" />
+              </div> 
+              <div className="pay-credit-card__back-step-text">
+                Alterar forma de pegamento
+              </div>
+            </div>
+            <div className="pay-credit-card__steps">
+              {StepListMobile(["Carrinho", "Pagamento", "Confirmação"], "Pagamento")}
+            </div>
+            <div className="pay-credit-card__right">
+            </div>
           </div>
           <div className="pay-credit-card__step-title">
             <img src={cartIconImg} />
