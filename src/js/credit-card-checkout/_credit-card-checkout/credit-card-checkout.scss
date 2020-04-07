@@ -1,13 +1,9 @@
 .pay-credit-card {
   display: flex;
   background-color: #fff;
-  width: 1024px;
-  height: 596px;
   &__presentation {
     box-sizing: border-box;
     width: 352px;
-    height: 596px;
-    padding: 53px 10px 53px 64px;
     background: #DE4B4B 0% 0% no-repeat padding-box;
   }
   &__icon {
@@ -42,5 +38,48 @@
     flex-grow: 2;
     padding: 50px;
     padding-left: 168px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .pay-credit-card {
+    width: 1024px;
+    height: 596px;
+    &__presentation {
+      width: 352px;
+      height: 596px;
+      padding: 53px 10px 53px 64px;
+    }
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .pay-credit-card {
+    flex-direction: column;
+    width: 100%;
+    &__presentation {
+      padding-bottom: -20px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    &__step-title {
+      width: 240px;
+    }
+    &__figure {
+      margin-bottom: -80px;
+      box-shadow: 0px 24px 12px -14px rgba($color: #aaa, $alpha: 0.8);
+    }
+    &__form-container {
+      padding: 50px;
+      padding-top: 120px;
+      align-items: center;
+    }
+    &__step-list {
+      display: none;
+    }
+    &__form {
+      width: 365px;
+    }
   }
 }

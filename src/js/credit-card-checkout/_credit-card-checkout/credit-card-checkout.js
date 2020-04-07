@@ -48,15 +48,19 @@ export default class PayCreditCard extends Component {
             <img src={cartIconImg} />
             Adicione um novo cartão de crédito
           </div>
+          <div className="pay-credit-card__figure">
           <CardFigurePicker 
             client={this.state.client}
             cardFigureRender={this.setCartFigure}>
           </CardFigurePicker>
+          </div>
         </div>
         <div className="pay-credit-card__form-container">
-          <StepList
-            steps={["Carrinho", "Pagamento", "Confirmação"]}
-            stepSelected={"Pagamento"}></StepList>
+          <div className="pay-credit-card__step-list">
+            <StepList
+              steps={["Carrinho", "Pagamento", "Confirmação"]}
+              stepSelected={"Pagamento"}></StepList>
+          </div>
           <div className="pay-credit-card__form">
             <PayForm update={this.update}></PayForm>
           </div>

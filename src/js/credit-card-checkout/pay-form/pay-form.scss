@@ -30,7 +30,6 @@
   }
   &__btn-submit {
     box-sizing: border-box;
-    width: 246px;
     height: 51px;
     border: 0;
     background: #DE4B4B 0% 0% no-repeat padding-box;
@@ -47,6 +46,20 @@
     background-color: #ddd;
     &:hover {
       background: #ddd 0% 0% no-repeat padding-box;
+    }
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .pay-form {
+    &__btn-submit {
+      width: 246px;
+    }
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .pay-form {
+    &__btn-submit {
+      width: 100%;
     }
   }
 }
