@@ -3,8 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import './credit-card-checkout.scss';
 import cartIconImg from '../../../../assets/cart-icon.svg';
-import CardFigureVisa from '../card-figure-picker/card-figure-visa/card-figure-visa';
-import CardFigureUndefined from '../card-figure-picker/card-figure-undefined/card-figure-undefined';
 import CardFigurePicker from '../card-figure-picker/_card-figure-picker/card-figure-picker';
 import StepList from '../step-list/step-list';
 import PayForm from '../pay-form/_pay-form/pay-form';
@@ -25,23 +23,22 @@ export default class PayCreditCard extends Component {
         cardCode: '', 
         people: '', 
         shelfLife: ''
-      }
+      },
+      displayCardBack: false
     };
     this.update = this.update.bind(this);
   }
   update(e){
-    //console.log(e);
     const newState = {};
+    const _cvv = e.find(item => item.name == 'cvv');
     e.forEach(item => {
       newState[item.name] = item.value
     });
-    this.setState({ client: { ...this.state.client, ...newState }});
-  }
-  setCartFigure(c) {
-    if(/^[4]{1}[.]*/.test(c.cardCode)){
-      return (<CardFigureVisa client={c}></CardFigureVisa>)
-    }
-    return (<CardFigureUndefined client={c}></CardFigureUndefined>)
+    
+    this.setState({ 
+      client: { ...this.state.client, ...newState },
+      displayCardBack: _cvv ? _cvv.focus || _cvv.hover : false,
+    });
   }
   render() {
     return (
@@ -69,7 +66,7 @@ export default class PayCreditCard extends Component {
           <div className="pay-credit-card__figure">
           <CardFigurePicker 
             client={this.state.client}
-            cardFigureRender={this.setCartFigure}>
+            displayCardBack={this.state.displayCardBack}>
           </CardFigurePicker>
           </div>
         </div>

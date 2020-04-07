@@ -53,6 +53,8 @@ class PayForm extends Component {
     obj[`${value.name}`]['isValid'] = value.isValid;
     this.setState(obj);
     obj[`${value.name}`]['name'] = value.name;
+    obj[`${value.name}`]['hover'] = value.hover;
+    obj[`${value.name}`]['focus'] = value.focus;
     const stateCopy = {
       ...this.state
     }

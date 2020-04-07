@@ -11,13 +11,19 @@ class PayFormInput extends Component {
       all: '^.*$'
     }
 		this.state = {
+      name: this.props.name,
       value: '',
-      isValid: true
+      isValid: true,
+      hover: false,
+      focus: false
 		};
     this.updateValue = this.updateValue.bind(this);
     this.isPosition = this.isPosition.bind(this);
     this.validate = this.validate.bind(this);
+    this.onFocusHandler = this.onFocusHandler.bind(this);
     this.onBlurHandler = this.onBlurHandler.bind(this);
+    this.onMouseEnterHandler = this.onMouseEnterHandler.bind(this);
+    this.onMouseLeaveHandler = this.onMouseLeaveHandler.bind(this);
   }
 	updateValue(e) {
     const { separator = '', charSet } = this.props;
@@ -40,6 +46,8 @@ class PayFormInput extends Component {
     this.setState(newState);
     newState['name'] = this.props.name;
     newState['isValid'] = this.validate(e.target.value);
+    newState['hover'] = this.state.hover;
+    newState['focus'] = this.state.focus;
     this.props.update(newState);
   }
   isPosition(length) {
@@ -60,11 +68,25 @@ class PayFormInput extends Component {
       }
     }
   }
-  onBlurHandler(e){
-    const newState = { };
-    newState['value'] = e.target.value;
-    newState['isValid'] = this.validate(e.target.value);
+  onFocusHandler() {
+    const newState = { ...this.state, focus: true };
     this.setState(newState);
+    this.props.update(newState);
+  }
+  onBlurHandler(e){
+    const newState = { ...this.state, focus: false };
+    this.setState(newState);
+    this.props.update(newState);
+  }
+  onMouseEnterHandler() {
+    const newState = { ...this.state, hover: true };
+    this.setState(newState);
+    this.props.update(newState);
+  }
+  onMouseLeaveHandler() {
+    const newState = { ...this.state, hover: false };
+    this.setState(newState);
+    this.props.update(newState);
   }
 	render() {
 		return (
@@ -77,7 +99,10 @@ class PayFormInput extends Component {
           className={!this.state.isValid === false ? "pay-input__input" : " pay-input__input pay-input__input--invalid"}
           value={this.state.value}
           onChange={this.updateValue}
+          onFocus={this.onFocusHandler}
           onBlur={this.onBlurHandler}
+          onMouseEnter={this.onMouseEnterHandler}
+          onMouseLeave={this.onMouseLeaveHandler}
           placeholder={this.props.label}></input>
         <div className={this.state.isValid === false ? "pay-input__alert pay-input__alert--visible" : "pay-input__alert"}>
           {this.props.invalidMsg}
