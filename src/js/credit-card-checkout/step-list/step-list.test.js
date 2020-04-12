@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom'
-import { render, cleanup, waitForElement, fireEvent } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import React from 'react'
 
 import StepList from './step-list';

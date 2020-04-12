@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PayFormSelect /> spec Snapshot test 1`] = `
+<div
+  class="pay-select"
+  data-testid="pay-select"
+>
+  <label
+    class="pay-select__label"
+  >
+    Número de parcelas
+  </label>
+  <div
+    class="pay-select__container pay-select__container--empty"
+  >
+    <select
+      class="pay-select__select"
+      data-testid="input-select"
+      id="Insira o número de parcelas"
+      placeholder="Número de parcelas"
+    >
+      <option
+        value="0"
+      >
+        Número de parcelas
+      </option>
+      <option
+        value="1"
+      >
+        1X
+      </option>
+      <option
+        value="3"
+      >
+        3X
+      </option>
+      <option
+        value="5"
+      >
+        5X
+      </option>
+      <option
+        value="10"
+      >
+        10X
+      </option>
+    </select>
+  </div>
+  <div
+    class="pay-select__alert pay-select__alert--invisible"
+  >
+    Insira o número de parcelas
+  </div>
+</div>
+`;

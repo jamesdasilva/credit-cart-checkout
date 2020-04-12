@@ -31,13 +31,14 @@ class PayFormSelect extends Component {
   }
 	render() {
 		return (
-      <div className="pay-select">
+      <div className="pay-select" data-testid='pay-select'>
         <label className={this.state.value != "0" ? "pay-select__label pay-select__label--visible" : "pay-select__label"}>
           {this.props.label}
         </label>
         <div className={this.state.value != "0" ? "pay-select__container" : "pay-select__container pay-select__container--empty"}>
           <select 
-            data-testid={this.props.name}
+            data-testid={"input-select"}
+            id={this.props.name}
             className={this.state.isValid ? "pay-select__select" : "pay-select__select pay-select__select--invalid"}
             value={this.state.value}
             onChange={this.updateValue}
