@@ -4,7 +4,7 @@
   "description": "## Desafio",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/jest",
+    "test": "node_modules/.bin/jest --watch",
     "start": "node_modules/.bin/webpack-dev-server --open --mode development",
     "upfake": "node_modules/.bin/json-server src/mocks/db.json --watch",
     "build": "node_modules/.bin/webpack --mode production",
@@ -31,6 +31,8 @@
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
     "@testing-library/cypress": "^6.0.0",
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.2",
     "babel-jest": "^25.3.0",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.4.2",
@@ -55,6 +57,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "axios": "^0.19.2",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
