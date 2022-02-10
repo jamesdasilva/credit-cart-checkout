@@ -42,7 +42,7 @@
     "html-webpack-plugin": "^4.0.4",
     "jest": "^25.3.0",
     "json-server": "^0.16.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react-svg-loader": "^3.0.3",
     "react-test-renderer": "^16.13.1",
     "sass-loader": "^8.0.2",
